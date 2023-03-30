@@ -1,4 +1,4 @@
-module github.com/akhil/go-bookstore
+module github.com/amit/go-bookstore
 
 go 1.20
 
