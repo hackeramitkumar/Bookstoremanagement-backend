@@ -7,13 +7,12 @@ import(
 
 var db *gorm.DB
 
-type Book struct(
-	gorm.model
+type Book struct{
+	gorm.Model
 	Name string `gorm:""json:"name"`
-	Author string `json:"name"`
-	Author string string `json:"author"`
+	Author string `json:"author"`
 	Publication string `json:"publication"`
-)
+}
 
 
 func init(){
@@ -36,15 +35,15 @@ func GetAllBooks() []Book{
 	return Books
 }
 
-func GetBookById(Id int64) (*Book, *gorm.DB) {
+func GetBookById(ID int64) (*Book, *gorm.DB) {
 	var getBook Book
-	db := db.where("ID=?",Id).Find(&getBook)
+	db := db.Where("ID=?",ID).Find(&getBook)
 	return &getBook, db
 }
 
 func DeleteBook(ID int64) Book{
 	var book Book
-	db.where("ID=?",Id).Delete(book)
+	db.Where("ID=?",ID).Delete(book)
 	return book
 }
 

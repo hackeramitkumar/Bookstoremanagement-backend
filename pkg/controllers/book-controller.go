@@ -12,10 +12,10 @@ import(
 
 var NewBook models.Book
 
-func GatBook(w http.ResponseWrite, r *http.Request){
+func GetBook(w http.ResponseWriter, r *http.Request){
 	newBooks := models.GetAllBooks()
 	res,_ := json.Marshal(newBooks)
-	w.Header().set("Content-Type","pkglication/json")
+	w.Header().Set("Content-Type","pkglication/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -29,7 +29,7 @@ func GetBookById(w http.ResponseWriter, r *http.Request) {
 	}
 	bookDetails, _:=models.GetBookById(ID)
 	res,_ := json.Marshal(bookDetails)
-	w.Header().set("Content-Type","pkglication/json")
+	w.Header().Set("Content-Type","pkglication/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -40,6 +40,8 @@ func CreateBook(w http.ResponseWriter, r *http.Request){
 	utils.ParseBody(r, CreateBook)
 	b:= CreateBook.CreateBook()
 	res, _ := json.Marshal(b)
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
 }
 
 
