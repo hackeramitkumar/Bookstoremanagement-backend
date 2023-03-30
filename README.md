@@ -3,3 +3,13 @@ This project is written in golang. This project have a CRUD apis for book-store-
 
 Tech-stack : 
 Go
+
+API Endpoints:
+GET
+/book/   -> for getting all the books
+POST
+/book/   -> for adding a book
+/book/:bookId -> for searching a book in database
+
+
+
